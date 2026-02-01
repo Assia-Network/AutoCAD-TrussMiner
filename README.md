@@ -12,6 +12,12 @@ Su objetivo principal es eliminar la tediosa tarea de introducir coordenadas man
 4.  **Visualización 3D:** Genera un gráfico interactivo con Plotly para inspeccionar la estructura antes de calcular.
 5.  **Matriz de Rigidez:** Prepara los datos (nodos y conectividad) para ser procesados por métodos matriciales.
 
+## Descarga
+
+¿Listo para usarlo? Descarga el ejecutable para Windows directamente aquí:
+
+[![Download](https://img.shields.io/badge/Windows-Descargar_Exe-0078D6?style=for-the-badge&logo=windows)](https://github.com/Assia-Network/AutoCAD-TrussMiner/releases/download/Windows/AutoCAD.TrussMiner.exe)
+
 ## ⚙️ Requisitos Previos
 
 Para que el ejecutable funcione, necesitas:
