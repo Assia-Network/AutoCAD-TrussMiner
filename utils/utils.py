@@ -510,19 +510,6 @@ def ploter_def_deformada(barras, nodo_GDL_despl_barras, matriz_rigidez, def_un_e
             def_unt_barra = def_un_esf_normal[id_barra][0]
             esfuerzo_axial = def_un_esf_normal[id_barra][1]
             fuerza_axial = def_un_esf_normal[id_barra][2]
-
-            if def_unt_barra > 0:
-                x_lines_trac.extend([xi, xf, None])
-                y_lines_trac.extend([yi, yf, None])
-                z_lines_trac.extend([zi, zf, None])
-            elif def_unt_barra < 0:
-                x_lines_comp.extend([xi, xf, None])
-                y_lines_comp.extend([yi, yf, None])
-                z_lines_comp.extend([zi, zf, None])
-            else:
-                x_lines_neut.extend([xi, xf, None])
-                y_lines_neut.extend([yi, yf, None])
-                z_lines_neut.extend([zi, zf, None])
             
             info = (
                 f"<b>ID: {id_barra}</b><br>"
@@ -536,6 +523,19 @@ def ploter_def_deformada(barras, nodo_GDL_despl_barras, matriz_rigidez, def_un_e
             xf = xf + xfd * escala_deformada
             yf = yf + yfd * escala_deformada
             zf = zf + zfd * escala_deformada
+
+            if def_unt_barra > 0:
+                x_lines_trac.extend([xi, xf, None])
+                y_lines_trac.extend([yi, yf, None])
+                z_lines_trac.extend([zi, zf, None])
+            elif def_unt_barra < 0:
+                x_lines_comp.extend([xi, xf, None])
+                y_lines_comp.extend([yi, yf, None])
+                z_lines_comp.extend([zi, zf, None])
+            else:
+                x_lines_neut.extend([xi, xf, None])
+                y_lines_neut.extend([yi, yf, None])
+                z_lines_neut.extend([zi, zf, None])
 
             xm = (xi+xf)/2
             ym = (yi+yf)/2
