@@ -54,7 +54,7 @@ def seleccion_actual_id():
 
         try:
             acad.Visible = True
-            acad.WindowState = 1
+            acad.WindowState = 2
         except:
             pass
 
@@ -211,6 +211,7 @@ def k_rigidez(ni,nf, A, E):
 
     return ki
 
+@st.cache_resource(show_spinner=False)
 def ensambladora(matriz_rigidez, numero_nodos, nodo_GDL_barras_act):
     dims = numero_nodos*3
     k_global = np.zeros((dims, dims))
@@ -224,6 +225,7 @@ def ensambladora(matriz_rigidez, numero_nodos, nodo_GDL_barras_act):
 
     return k_global, fuerzas_globales, desplazamientos_globales
 
+@st.cache_resource(show_spinner=False)
 def fuerzas_globales_func(fuerzas_vect, fuerzas, nodo_GDL_actuales):
     for fuerza in fuerzas.to_dict(orient='records'):
         nodo_id = fuerza["Nodo"]
@@ -232,6 +234,7 @@ def fuerzas_globales_func(fuerzas_vect, fuerzas, nodo_GDL_actuales):
         fuerzas_vect[gdl] = [fx, fy, fz]
     return fuerzas_vect
 
+@st.cache_resource(show_spinner=False)
 def grados_lib_restr_func(restricciones, nodo_GDL_actuales):
     grados_lib_rest = []
     GDL_total = np.arange(len(nodo_GDL_actuales)*3)
@@ -253,6 +256,7 @@ def grados_lib_restr_func(restricciones, nodo_GDL_actuales):
 
     return grados_lib_rest, np.setdiff1d(GDL_total, grados_lib_rest)
 
+@st.cache_resource(show_spinner=False)
 def funcion_calcular(barras, nodos, fuerzas, restricciones):
     nodo_GDL_actuales = {}
     nodo_GDL_barras_act = {}
@@ -342,6 +346,7 @@ def funcion_calcular(barras, nodos, fuerzas, restricciones):
 
     return estado, seccion, nodo_GDL_barras_act, nodo_GDL_despl_barras, matriz_rigidez, def_un_esf_normal, matriz_rigidez_global, fuerzas_globales
 
+@st.cache_resource(show_spinner=False)
 def ploter_def(barras, nodos_coord):
     if len(barras) > 0 and len(nodos_coord):
         # Creamos la figura
@@ -485,6 +490,7 @@ def ploter_def(barras, nodos_coord):
 
         st.markdown("<br>" * 3, unsafe_allow_html=True)
 
+@st.cache_resource(show_spinner=False)
 def ploter_def_deformada(barras, nodo_GDL_despl_barras, matriz_rigidez, def_un_esf_normal, escala_deformada, nodo_GDL_barras_act):   
     if len(barras) > 0 and len(nodo_GDL_despl_barras) > 0 and len(matriz_rigidez) > 0 and len(def_un_esf_normal) > 0:
         # Creamos la figura
@@ -700,6 +706,7 @@ def ploter_def_deformada(barras, nodo_GDL_despl_barras, matriz_rigidez, def_un_e
 
                 st.latex(ecuacion)
 
+@st.cache_resource(show_spinner=False)
 def print_globales():
     try:
         if len(st.session_state['matriz_rigidez_global']) > 0 and len(st.session_state['fuerzas_globales']) > 0:
@@ -746,6 +753,7 @@ def print_globales():
         if st.session_state['condicion_globales'] == False:
             contenedor_mensaje.empty()
 
+@st.cache_resource(show_spinner=False)
 def seleccionar_nudo_comun(metodo_seleccion_id_comun, ids_seleccionados, barras_dict): 
     
     nodos_respectivo = []
@@ -786,6 +794,7 @@ def seleccionar_nudo_comun(metodo_seleccion_id_comun, ids_seleccionados, barras_
     return nodos_respectivo
             
 # Función para cargar CSS externo
+@st.cache_resource(show_spinner=False)
 def load_css(file_name):
     try:
         with open(file_name, encoding='utf-8') as f:
@@ -793,6 +802,7 @@ def load_css(file_name):
     except FileNotFoundError:
         st.error(f"No se encontró el archivo de estilos: {file_name}")
 
+@st.cache_resource(show_spinner=False)
 def obtener_ruta_recurso(ruta_relativa):
     try:
         base_path = sys._MEIPASS
@@ -801,6 +811,7 @@ def obtener_ruta_recurso(ruta_relativa):
 
     return os.path.join(base_path, ruta_relativa)
 
+@st.cache_resource(show_spinner=False)
 def target_autor():
     st.markdown("""
     <div class="assiafb-author-card">
