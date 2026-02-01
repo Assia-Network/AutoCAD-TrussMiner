@@ -12,15 +12,9 @@ Su objetivo principal es eliminar la tediosa tarea de introducir coordenadas man
 4.  **Visualización 3D:** Genera un gráfico interactivo con Plotly para inspeccionar la estructura antes de calcular.
 5.  **Matriz de Rigidez:** Prepara los datos (nodos y conectividad) para ser procesados por métodos matriciales.
 
-## Descarga
-
-¿Listo para usarlo? Descarga el ejecutable para Windows directamente aquí:
-
-[![Download](https://img.shields.io/badge/Windows-Descargar_Exe-0078D6?style=for-the-badge&logo=windows)](https://github.com/Assia-Network/AutoCAD-TrussMiner/releases/download/Windows/AutoCAD.TrussMiner.exe)
-
 ## ⚙️ Requisitos Previos
 
-Para que el ejecutable funcione, necesitas:
+Para que la herramienta funcione, necesitas:
 
 - **Sistema Operativo:** Windows 10/11 (La interfaz COM de AutoCAD no existe en Mac/Linux).
 - **Software:** AutoCAD instalado (cualquier versión desde 2018 en adelante debería funcionar).
@@ -32,7 +26,7 @@ Para que el ejecutable funcione, necesitas:
     - _Nota:_ Asegúrate de que las barras sean líneas simples (`LINE`), no polilíneas.
     - _Tip:_ Usa capas distintas para diferentes secciones (ej. "Cordon_Superior", "Diagonales").
     - _Importante:_ En la descripción de las capas colocar el modulo de elasticidad y área transversal (ej. "E = 1e+11 , A = 0.25")
-2.  Ejecuta `AutoCAD TrussMiner.exe`.
+2.  Ejecuta `lanzador.py`.
 3.  Espera unos segundos a que cargue la interfaz.
 4.  Haz clic en el botón para extraer datos.
 5.  Visualiza tu armadura e inspecciona los nodos.
